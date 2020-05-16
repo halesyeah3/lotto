@@ -5,7 +5,10 @@ print('Welcome to the Lotto Game')
 
 lottoNumbers = input('Enter your 5 lotto numbers (1-60) seperated by a comma')
 
-#Need to add validation for the input from the user - unique numbers only and 1-60
+#Need to add validation for the input from the user for the following
+#Duplicate Numbers
+#Non Numeric Values
+#Numbers outside 1-60 range
 
 
 lNumbers = lottoNumbers.split(",")
