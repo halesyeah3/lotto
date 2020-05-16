@@ -26,6 +26,7 @@ num3 = randint(1,60) #3
 num4 = randint(1,60) #4
 num5 = randint(1,60) #5
 
+#Clean this up
 lotto = [num1, num2, num3, num4, num5]
 lottoWinners = str(lotto)
 print('Winning Numbers: ', lottoWinners)
