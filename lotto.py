@@ -1,6 +1,4 @@
 #!/bin/python3
-
-from random import randint
 import random
 
 def checkRange(num):
@@ -18,110 +16,42 @@ def checkDupe(listOfElems):
     else:
         return True
 
-#Take in User Input
-lottoString = input('Enter your 5 lotto numbers (1-60) seperated by a comma')
-
-#Convert Input to List
-lNumbers = lottoString.split(",")
-
-#Validate Input for integers
-try:
-    lNumber = (int(i) for i in lNumbers)
-except ValueError:
-    print('Not a Number')
-    #Restart the loop back to User Input
-    
-#value range
-try:
-    for eachItem in lNumber:
-        checkRange(eachItem)
-except ValueError:
-    print(ValueError)
-    
-#duplicates
-try:
-    for eachItem in lNumber:
-        count =  checkDupe(lNumber)
-        if count:
-            print('Duplicate Entry')
-        else:
-            print('Not a Dupe')
-
-except ValueError:
-    print('Duplicate Entry')
-
-#If invalid send back to User Input, If valid continue
-
-#Generate winning Lotto Numbers
-
-#Compare User Input to Winning Lotto Numbers
-
-#Print Result
-
-#Play Again? Feature that loops to beginning
-
-
-
 def checkCorrect(int):
-    if int == 5:
+      if int == 5:
         print('Congratulations! You won $100,000')
-    elif int == 4:
+      elif int == 4:
         print('Congratulations! You won $4,000')
-    elif int == 3:
+      elif int == 3:          
         print('Congratulations! You won $5')
-    else:
+      else:
         print('Play Again')
         print('Welcome to the Lotto Game')
 
-
-'''
+#Take in User Input
 while True:
+  lottoString = input('Enter your 5 lotto numbers (1-60) seperated by a comma')
 
-    
-    lottoNumbers = input('Enter your 5 lotto numbers (1-60) seperated by a comma')
-    lNumbers = lottoNumbers.split(",")
-    try:
-        def checkRange(num):
-            if (1 <= num <= 60):
-                print('range valid')
-                print(num)
-                return True
-            else:
-                return False
-            
-        lNumber = (int(i) for i in lNumbers)
-        #Why does only one condition work?
-        #I want to check the range between 1-60 & check for duplicates
-        for eachItem in lNumber:
-            checkRange(eachItem)
-            
-           
-#Should only draw lotto numbers if validation is met
-            lotto = random.sample(range(1, 60), 5)
-            print('Your Numbers: ', lNumbers)
-            print('Winning Numbers: ', lotto)
+#Convert Input to List
+  lNumbers = lottoString.split(",")
+
+#Validate Input for integers
+  try:
+    lNumber = (int(i) for i in lNumbers)
+    if ((checkRange(lNumber) == False and checkDupe(lNumber) == True) for i in lNumber):
+      lotto = random.sample(range(1, 60), 5)
+      print('Your Numbers: ', lNumbers)
+      print('Winning Numbers: ', lotto)
         #Count the number of matching numbers from user guess and lotto winners
-            correctNum = sum(x == y for x, y in zip(lNumber, lotto))
-            print('You got', correctNum, 'correct')
+      correctNum = sum(x == y for x, y in zip(lNumber, lotto))
+      print('You got', correctNum, 'correct')
+      checkCorrect(correctNum)
+    else:
+      raise Exception("Not a valid input")
 
-            if correctNum == 5:
-                print('Congratulations! You won $100,000')
-            elif correctNum == 4:
-                print('Congratulations! You won $4,000')
-            elif correctNum == 3:
-                print('Congratulations! You won $5')
-            else:
-                print('Thanks for Playing!')
-            #Loop Back after input from user
-            #playagain = input('Play Again? Y/N')
-            #if playagain == 'Y' or playagain == 'y':
-            #    continue
-            #else:
-            #    print('Thanks For Playing!')
-    
-        else:
-            continue
-    except ValueError:
-        continue
-'''        
-    
+
+
+  except ValueError:
+    print('Bad Value')
+    continue
+    #if ((lNumber < 0 or lNumber > 60 or lNumber is not int) for i in lNumber):
+
